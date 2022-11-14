@@ -64,7 +64,7 @@ function addBooktoPage(count){
     remove.textContent = "REMOVE";
 
     //adding class
-    book.classList.add(title.textContent);
+    book.setAttribute("id",title.textContent);
     title.classList.add("title");
     author.classList.add("author");
     length.classList.add("length");
@@ -101,6 +101,10 @@ function removeBook(){
     myLibrary.splice(remIndex,1);
     console.log(remIndex);
     console.log(myLibrary);
+
+    const remBook = document.getElementById(bookToRemove)
+    console.log(remBook)
+    container.removeChild(remBook);
 }
 
 function openForm() {
