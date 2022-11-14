@@ -56,12 +56,14 @@ function addBooktoPage(count){
     const author = document.createElement("p");
     const length = document.createElement("p");
     const remove = document.createElement("button");
+    const markRead = document.createElement("button");
 
     //adding content
     title.textContent =  `"${myLibrary[count][0]}"` ;
     author.textContent = myLibrary[count][1];
     length.textContent = myLibrary[count][2];
     remove.textContent = "REMOVE";
+    markRead.textContent = "NOT READ";
 
     //adding class
     book.setAttribute("id",title.textContent);
@@ -70,18 +72,34 @@ function addBooktoPage(count){
     length.classList.add("length");
     remove.classList.add("remove");
     remove.classList.add(title.textContent);
-
+    markRead.classList.add("markRead");
 
     //placing it in container
     book.appendChild(title);
     book.appendChild(author);
     book.appendChild(length);
-    book.appendChild(remove)
+    book.appendChild(markRead);
+    book.appendChild(remove);
     container.appendChild(book);
 
     //enabling remove button
     remove.addEventListener("click",removeBook);
 
+    //enabling markRead button 
+    markRead.addEventListener("click",toggleButton);
+
+}
+
+function toggleButton(){
+
+    console.log(this)
+
+    if (this.textContent==="READ"){
+        this.textContent="NOT READ"
+    }
+    else{
+        this.textContent="READ";
+    }
 }
 
 function removeBook(){
