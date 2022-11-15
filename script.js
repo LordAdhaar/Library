@@ -23,7 +23,7 @@ function addBookToLibrary(){
 
     if (title.value==="" || author.value==="" || length.value===""){
     return;
-}
+    }
 
     const newBook = [title.value,author.value,+length.value];
     myLibrary.push(newBook);
