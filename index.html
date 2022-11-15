@@ -7,15 +7,24 @@
     <title>Library</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     
     <!-- A button to open the popup form -->
-    <button class="open-button" onclick="openForm()">ADD BOOK</button>
+
+    <div class="header">
+        <h2>Library</h2>
+    </div>
 
     <!-- The form -->
     <div class="form-popup" id="myForm">
         <form class="form-container">
+
+            <h3>ADD YOUR BOOK :</h3>
 
             <input type="text" placeholder="Title" id="title" required>
 
@@ -24,7 +33,7 @@
             <input type="number" placeholder="Pages" id="length" required>
 
             <button type="submit" class="btn submit">SUBMIT</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">CANCEL</button>
+            <button type="button" class="btn cancel" >CANCEL</button>
         </form>
     </div>
 
@@ -34,3 +43,4 @@
 
 </body>
 </html>
+

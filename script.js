@@ -6,8 +6,9 @@ let remIndex = 0;
 const container = document.querySelector(".container");
 const body = document.querySelector("body");
 const submit = document.querySelector(".submit")
+const cancel = document.querySelector(".cancel");
 submit.addEventListener("click",addBookToLibrary);
-
+cancel.addEventListener("click",resetForm);
 //library record
 let myLibrary = [];
 
@@ -19,6 +20,10 @@ function addBookToLibrary(){
     const title = document.getElementById("title");
     const author = document.getElementById("author");
     const length = document.getElementById("length");
+
+    if (title.value==="" || author.value==="" || length.value===""){
+    return;
+}
 
     const newBook = [title.value,author.value,+length.value];
     myLibrary.push(newBook);
@@ -60,18 +65,25 @@ function addBooktoPage(count){
 
     //adding content
     title.textContent =  `"${myLibrary[count][0]}"` ;
-    author.textContent = myLibrary[count][1];
-    length.textContent = myLibrary[count][2];
+    author.textContent = "Written by " + myLibrary[count][1];
+    length.textContent = myLibrary[count][2] + " Pages";
     remove.textContent = "REMOVE";
-    markRead.textContent = "NOT READ";
+    markRead.textContent = "READ";
 
     //adding class
+    book.classList.add("book");
     book.setAttribute("id",title.textContent);
+
+    console.log(book);
+
     title.classList.add("title");
     author.classList.add("author");
     length.classList.add("length");
     remove.classList.add("remove");
-    remove.classList.add(title.textContent);
+
+    remove.setAttribute("id",title.textContent);
+    console.log(remove)
+    
     markRead.classList.add("markRead");
 
     //placing it in container
@@ -106,7 +118,7 @@ function removeBook(){
 
     remIndex = 0;
     count-=1;
-    const bookToRemove = this.classList[1];
+    const bookToRemove = this.id;
     console.log(bookToRemove);
 
     for(const book of myLibrary){
@@ -124,11 +136,3 @@ function removeBook(){
     console.log(remBook)
     container.removeChild(remBook);
 }
-
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
