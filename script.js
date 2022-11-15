@@ -85,6 +85,7 @@ function addBooktoPage(count){
     console.log(remove)
     
     markRead.classList.add("markRead");
+    markRead.classList.add("read");
 
     //placing it in container
     book.appendChild(title);
@@ -107,10 +108,14 @@ function toggleButton(){
     console.log(this)
 
     if (this.textContent==="READ"){
-        this.textContent="NOT READ"
+        this.classList.remove("read");
+        this.textContent="NOT READ";
+        this.classList.add("unread");
     }
     else{
+        this.classList.remove("unread");
         this.textContent="READ";
+        this.classList.add("read");
     }
 }
 
